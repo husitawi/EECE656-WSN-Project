@@ -1,13 +1,13 @@
 <tos_image>
   <ident>
+    <uidhash>110237EAL</uidhash>
     <hostname>hus</hostname>
-    <appname>OscilloscopeApp</appname>
-    <timestamp>5C051353L</timestamp>
-    <platform>xm1000</platform>
     <userhash>150DB2BAL</userhash>
-    <uidhash>4A70EF10L</uidhash>
+    <platform>xm1000</platform>
     <username>pewpew</username>
+    <appname>OscilloscopeApp</appname>
     <deluge_support>no</deluge_support>
+    <timestamp>5C0553F6L</timestamp>
   </ident>
   <image format="ihex">
 :10310000314000311542200175F335D0085A3F4057

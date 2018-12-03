@@ -15,8 +15,8 @@ implementation
 {
   message_t sendBuf;
   bool sendBusy;
-
   oscilloscope_t local;
+  int i;
 
   uint8_t reading; /* 0 to NREADINGS */
   bool suppressCountChange;
@@ -41,10 +41,20 @@ implementation
 
     report_received();
 
-    if (!sendBusy && sizeof omsg <= call AMSend.maxPayloadLength())
+    local.version  = omsg->version;
+    local.interval = omsg->interval;
+    local.count    = omsg->count;
+    local.id       = omsg->id;
+
+    for (i = 0; i < NREADINGS; ++i) {
+        local.readings[i] = omsg->readings[i];
+    }
+
+    if (!sendBusy && sizeof local <= call AMSend.maxPayloadLength())
           {
-            memcpy(call AMSend.getPayload(&sendBuf, sizeof(omsg)), &omsg, sizeof omsg);
-            if (call AMSend.send(AM_BROADCAST_ADDR, &sendBuf, sizeof omsg) == SUCCESS)
+
+            memcpy(call AMSend.getPayload(&sendBuf, sizeof(local)), &local, sizeof local);
+            if (call AMSend.send(AM_BROADCAST_ADDR, &sendBuf, sizeof local) == SUCCESS)
               sendBusy = TRUE;
           }
         if (!sendBusy)
