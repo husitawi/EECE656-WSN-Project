@@ -1,5 +1,5 @@
-pewpew@hus:/opt/tinyos-2.1.2/apps/Oscilloscope/java$ java net.tinyos.sf.SerialForwarder -port 9002 -comm serial@/dev/ttyUSB0:telosb
+/opt/tinyos-2.1.2/apps/Oscilloscope/java$ java net.tinyos.sf.SerialForwarder -port 9002 -comm serial@/dev/ttyUSB0:telosb
 
 
 
-pewpew@hus:/opt/tinyos-2.1.2/apps/Oscilloscope/java$ ./run
+/opt/tinyos-2.1.2/apps/Oscilloscope/java$ ./run
